@@ -1,0 +1,82 @@
+---
+// Tech section component with futuristic background
+---
+
+<section class="relative h-screen flex items-center justify-center overflow-hidden gradient-hero">
+	<div class="absolute inset-0 bg-white/1 backdrop-blur-[100px]"></div>
+
+	<div class=" w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 ">
+		<div class="space-y-8">
+			<h2 class="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+				Let's make it simple
+			</h2>
+			
+			<p class="text-white/90 text-xl sm:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed">
+				Olvidate de las plataformas inmobiliarias tradicionales y disfruta de una experiencia inmobiliaria moderna y segura.
+			</p>
+			
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+				<div class="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
+					<h3 class="text-white text-2xl font-bold mb-4">AI Powered</h3>
+					<p class="text-white/80 text-lg">
+						Data analysis and insights
+					</p>
+				</div>
+				
+				<div class="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
+					<h3 class="text-white text-2xl font-bold mb-4">Anywhere/Anytime</h3>
+					<p class="text-white/80 text-lg">
+						Accede a tu cuenta desde cualquier dispositivo
+					</p>
+				</div>
+				<div class="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
+					<h3 class="text-white text-2xl font-bold mb-4">Updates</h3>
+					<p class="text-white/80 text-lg">
+						Notificaciones en tiempo real
+					</p>
+				</div>
+				<div class="backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6">
+					<h3 class="text-white text-2xl font-bold mb-4">Secure</h3>
+					<p class="text-white/80 text-lg">
+						Transacciones seguras y protegidas
+					</p>
+				</div>
+			</div>
+			
+			<div class="pt-12">
+				<button class="btn-primary px-12 py-6 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+					APP COMING SOON
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.tech-section-bg {
+		position: relative;
+		background: none;
+	}
+
+	.tech-section-bg::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: url('/646530adf505295a96ff9c58_real estate tech stack.jpeg') center / cover no-repeat;
+		filter: saturate(1.3) brightness(0.7) contrast(1.1);
+		pointer-events: none;
+	}
+
+	.tech-section-bg::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, rgba(124, 77, 255, 0.3) 0%, rgba(41, 121, 255, 0.2) 50%, rgba(0, 191, 165, 0.3) 100%);
+		pointer-events: none;
+	}
+
+	.tech-section-bg > * { 
+		position: relative; 
+		z-index: 1; 
+	}
+</style> 

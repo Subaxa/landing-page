@@ -1,0 +1,145 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  direction?: 'left' | 'right';
+}
+
+const { title: initialTitle, description: initialDescription, direction = 'left' } = Astro.props;
+
+const values = [
+  {
+    title: "San Carlos",
+    description: "10+ propiedades en el catálogo"
+  },
+  {
+    title: "Fortuna",
+    description: "10+ propiedades en el catálogo"
+  },
+  {
+    title: "Alajuela",
+    description: "10+ propiedades en el catálogo"
+  },
+  {
+    title: "San Cruz",
+    description: "10+ propiedades en el catálogo"
+  },
+  {
+    title: "Puerto Viejo",
+    description: "6+ propiedades en el catálogo"
+  },
+  {
+    title: "San José",
+    description: "1+ propiedades en el catálogo"
+  },
+  {
+    title: "Liberia",
+    description: "13+ propiedades en el catálogo"
+  },
+  {
+    title: "Zarcero",
+    description: "6+ propiedades en el catálogo"
+  }
+];
+---
+
+<div class="relative isolate overflow-hidden  gradient-hero text-white py-2.5">
+   
+  <div class="absolute inset-0 gradient-color opacity-50 backdrop-blur-[120px]"></div>
+  <div class="absolute inset-0 bg-white/1 backdrop-blur-[120px]"></div>
+
+    
+    <div class="ticker-wrapper">
+      <div class={`ticker-content ${direction === 'left' ? 'move-left' : 'move-right'}`}>
+        {values.map((item, index) => (
+          <div class="ticker-item">
+            <strong class="font-semibold text-white">{item.title}</strong>
+            <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current text-white">
+              <circle r="1" cx="1" cy="1" />
+            </svg>
+            <span class="text-white">{item.description}</span>
+          </div>
+        ))}
+        
+        <!-- Duplicamos para efecto continuo -->
+        {values.map((item, index) => (
+          <div class="ticker-item">
+            <strong class="font-semibold text-white">{item.title}</strong>
+            <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current text-white">
+              <circle r="1" cx="1" cy="1" />
+            </svg>
+            <span class="text-white">{item.description}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+</div>
+
+<style>
+  .ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .ticker-content {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+  
+  .move-left {
+    animation: scroll-left 120s linear infinite;
+  }
+  
+  .move-right {
+    animation: scroll-right 120s linear infinite;
+  }
+  
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    border-right: 1px solid #e5e7eb;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Pause on hover */
+  .ticker-wrapper:hover .ticker-content {
+    animation-play-state: paused;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .ticker-item {
+      padding: 0 1rem;
+      font-size: 0.75rem;
+    }
+    
+    .move-left, .move-right {
+      animation-duration: 80s !important;
+    }
+  }
+</style>
+  

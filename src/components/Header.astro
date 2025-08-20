@@ -1,0 +1,84 @@
+---
+// No props needed for this component
+---
+
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300">
+  <nav id="header-nav" class="mx-auto px-4 max-w-7xl transition-all duration-300">
+    
+    <div id="header-compact" class="flex items-center justify-center">
+      <!-- Desktop: All-in-one rounded menu -->
+      <div class="hidden md:flex items-center justify-center w-full">
+        <div class="backdrop-blur-enhanced bg-black/20 border border-white/20 rounded-full px-8 py-3.5 flex items-center justify-between gap-8 w-full max-w-4xl">
+          <!-- Left: Brand -->
+          <a href="#" class="flex items-center text-white/90 hover:text-white transition-colors">
+            <div class="backdrop-blur-sm rounded-full p-1 ">
+              <img src="/Logotipo-02.png" alt="SUBAXA Logo" class="h-8 object-contain">
+            </div>
+          </a>
+
+          <!-- Center: Menu Items -->
+          <div class="flex items-center gap-8">
+            <a href="#features" class="text-white hover:text-azul-electrico transition-colors duration-200 font-medium text-sm px-2 py-1">Inicio</a>
+            <a href="#customers" class="text-white hover:text-verde-exito transition-colors duration-200 font-medium text-sm px-2 py-1">Nosotros</a>
+            <a href="#pricing" class="text-white hover:text-morado-inspiracion transition-colors duration-200 font-medium text-sm px-2 py-1">Contacto</a>
+          </div>
+
+          <!-- Right: Sign In button -->
+          <button class="bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm hover:bg-azul-electrico hover:text-white transition-all duration-200 shadow-sm">
+            Sign In →
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile: Simple layout -->
+      <div class="md:hidden flex items-center justify-between w-full">
+        
+        <a href="#" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
+          <div class="backdrop-blur-sm bg-white/90 border border-white/20 rounded-full p-1">
+            <img src="/Logotipo-01.png" alt="SUBAXA Logo" class="h-10 w-10 object-contain">
+          </div>
+          <span class="font-semibold">SUBAXA</span>
+        </a>
+
+        <!-- Right: hamburger -->
+        <button 
+          id="mobile-menu-button"
+          class="text-white hover:text-azul-electrico transition-colors duration-200 backdrop-blur-enhanced bg-white/10 border border-white/20 rounded-full p-3"
+          aria-label="Toggle mobile menu"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4">
+      <div class="backdrop-blur-enhanced bg-white/10 rounded-2xl px-4 py-4 space-y-2">
+        <a href="#features" class="block px-4 py-3 text-white hover:text-azul-electrico hover:bg-white/10 rounded-xl transition-colors duration-200 font-medium text-sm">Features</a>
+        <a href="#customers" class="block px-4 py-3 text-white hover:text-verde-exito hover:bg-white/10 rounded-xl transition-colors duration-200 font-medium text-sm">Customers</a>
+        <a href="#pricing" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-colors duration-200 font-medium text-sm">Pricing</a>
+        <div class="border-t border-white/20 my-2"></div>
+        <button class="w-full bg-white text-gray-900 px-4 py-3 rounded-xl font-medium text-sm hover:bg-azul-electrico hover:text-white transition-all duration-200">
+          Sign In
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>  

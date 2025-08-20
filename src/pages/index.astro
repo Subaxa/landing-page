@@ -1,0 +1,29 @@
+---
+import Header from '../components/Header.astro';
+import Main from '../components/Main.astro';
+import HeroMarketing from '../components/HeroMarketing.astro';
+import Services from '../components/services.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import TechSection from '../components/TechSection.astro';
+import LetsTalk from '../components/letsTalk.astro';
+import WhatIs from '../components/whatIs.astro';
+import TopBanner from '../components/TopBanner.astro';
+import OurProjects from '../components/OurProjects.astro';
+import AnimatedBanner from '../components/AnimatedBanner.astro';
+import Banner from '../components/Banner.astro';
+---
+
+<Layout>
+	<Header />
+	<Main />
+	<TopBanner title="SUBAXA" description="— Subastas Judiciales, Invertir, comprar casa o terreno fácil y seguro a un click" />
+	<Services />
+	<OurProjects />
+	<Banner title="Nuevas Propiedades Sincronizados HOY — " description="18 de agosto de 2025" actionButton={false} />
+	<AnimatedBanner direction="right" />
+	<AnimatedBanner direction="left" />
+	<TechSection />
+	<LetsTalk />
+	<Footer />
+</Layout>
