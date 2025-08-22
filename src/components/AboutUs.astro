@@ -6,8 +6,8 @@ export interface Props {
 }
 import Logotipo7 from '../../public/Logotipo-07.png'
 
-const { 
-  title = "Conoce a Nuestro Equipo", 
+const {
+  title = "Conoce a Nuestro Equipo",
   subtitle = "En SUBAXA, somos un grupo dinámico de individuos apasionados por lo que hacemos. Nuestra misión es entregar los mejores resultados para nuestros clientes, superando siempre sus expectativas. Nos enorgullece ser un equipo comprometido, lleno de ideas innovadoras y soluciones creativas, siempre listos para enfrentar nuevos retos y generar un impacto positivo. Ubicados en el corazón de San Carlos, Alajuela, en la hermosa Costa Rica, trabajamos con una visión global pero con un enfoque cercano y personalizado. En nuestra sede, en Ciudad Quesada, fomentamos una cultura de trabajo colaborativa y profesional, donde cada miembro del equipo aporta su talento único para asegurar el éxito de cada proyecto. Nos apasiona lo que hacemos, y nuestro compromiso con la calidad y la excelencia nos ha permitido construir relaciones duraderas con nuestros clientes. Si buscas un equipo que se involucre de manera auténtica en cada detalle, estamos listos para acompañarte en cada paso del camino.."
 } = Astro.props;
 ---
@@ -30,7 +30,7 @@ const {
     <!-- Team Grid -->
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5 xl:gap-16">
       
-      <!-- Founder 1 -->
+      <!-- Team Member 1 - Carlos Rojas -->
       <div class="group relative">
         <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
           <div class="h-full w-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
@@ -50,24 +50,7 @@ const {
         </div>
       </div>
 
-      <!-- Founder 2 -->
-      <div class="group relative">
-        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
-          <div class="h-full w-full bg-gradient-to-br from-green-600/20 to-blue-600/20 flex items-center justify-center">
-            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="mt-6">
-          <h3 class="text-xl font-semibold text-gray-900">Dennis Valverde</h3>
-          <p class="text-sm text-gray-600">Co-Fundador</p>
-          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
-            Dennis, cofundador de Golabs, ha ayudado a empresas innovadoras a optimizar procesos mediante la externalización de sus necesidades técnicas a LATAM. Con más de 10 años de experiencia, 300+ proyectos y 60+ clientes satisfechos, Golabs ofrece soluciones personalizadas en IA, Ciencia de Datos, Desarrollo de Software, Nube y UX/UI, garantizando resultados de alta calidad.
-        </div>
-      </div>
-
-      <!-- Team Member 3 -->
+      <!-- Team Member 2 - Christopher Aguilar -->
       <div class="group relative">
         <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
           <div class="h-full w-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
@@ -85,7 +68,7 @@ const {
         </div>
       </div>
 
-      <!-- Team Member 4 -->
+      <!-- Team Member 3 - Cindy Herrara -->
       <div class="group relative">
         <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
           <div class="h-full w-full bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center">
@@ -104,7 +87,24 @@ const {
         </div>
       </div>
 
-      <!-- Team Member 5 -->
+      <!-- Team Member 4 - Dennis Valverde -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-green-600/20 to-blue-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Dennis Valverde</h3>
+          <p class="text-sm text-gray-600">Co-Fundador</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Dennis, cofundador de Golabs, ha ayudado a empresas innovadoras a optimizar procesos mediante la externalización de sus necesidades técnicas a LATAM. Con más de 10 años de experiencia, 300+ proyectos y 60+ clientes satisfechos, Golabs ofrece soluciones personalizadas en IA, Ciencia de Datos, Desarrollo de Software, Nube y UX/UI, garantizando resultados de alta calidad.
+        </div>
+      </div>
+
+      <!-- Team Member 5 - Nelson Ugalde -->
       <div class="group relative">
         <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
           <div class="h-full w-full bg-gradient-to-br from-teal-600/20 to-indigo-600/20 flex items-center justify-center">
