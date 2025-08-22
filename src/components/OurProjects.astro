@@ -1,5 +1,9 @@
 ---
-// Our Projects section component with image gallery layout
+import { OK } from 'astro:schema'
+import O1 from '../../public/o1.jpg'
+import O2 from '../../public/o2.jpeg'
+import O3 from '../../public/o3.jpg'
+import O4 from '../../public/o4.jpg'
 ---
 
 <section class="relative py-24 bg-white">
@@ -30,7 +34,7 @@
         <!-- Main large image -->
         <div class="relative mb-6">
           <img 
-            src="/o1.jpg" 
+            src={O1.src}
             alt="Proyecto inmobiliario destacado" 
             class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-lg"
             loading="lazy"
@@ -42,13 +46,13 @@
           <!-- Medium image spanning partial height -->
           <div class="space-y-4">
             <img 
-              src="/o2.jpeg" 
+              src={O2.src}
               alt="Apartamento moderno" 
               class="w-full h-48 object-cover rounded-2xl shadow-lg"
               loading="lazy"
             />
             <img 
-              src="/o4.jpg" 
+              src={O3.src}
               alt="Casa de lujo" 
               class="w-full h-32 object-cover rounded-2xl shadow-lg"
               loading="lazy"
@@ -58,7 +62,7 @@
           <!-- Tall image -->
           <div>
             <img 
-              src="/o3.jpg" 
+              src={O4.src}
               alt="Terreno con potencial" 
               class="w-full h-84 object-cover rounded-2xl shadow-lg"
               loading="lazy"

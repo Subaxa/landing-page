@@ -4,6 +4,7 @@ export interface Props {
   title?: string;
   subtitle?: string;
 }
+import Logotipo7 from '../../public/Logotipo-07.png'
 
 const { 
   title = "Conoce a Nuestro Equipo", 
@@ -14,6 +15,9 @@ const {
 <section class="bg-white py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Header Section -->
+    <div class="flex items-center justify-center mb-8">
+      <img src={Logotipo7.src} alt="SUBAXA Logo" class="h-16 sm:h-20 md:h-24 lg:h-28 object-contain">
+    </div>
     <div class="text-center mb-16">
       <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
         {title}

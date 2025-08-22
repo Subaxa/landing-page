@@ -1,5 +1,6 @@
 ---
-// No props needed for this component
+import Logotipo02 from '../../public/Logotipo-02.png';
+import Logotipo01 from '../../public/Logotipo-01.png'
 ---
 
 
@@ -13,7 +14,7 @@
           <!-- Left: Brand -->
           <a href="#" class="flex items-center text-white/90 hover:text-white transition-colors">
             <div class=" rounded-full p-1 ">
-              <img src="/Logotipo-02.png" alt="SUBAXA Logo" class="h-8 object-contain">
+              <img src={Logotipo02.src} alt="SUBAXA Logo" class="h-8 object-contain">
             </div>
           </a>
 
@@ -36,7 +37,7 @@
         
         <a href="#" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
           <div class="backdrop-blur-sm bg-white/90 border border-white/20 rounded-full p-1">
-            <img src="/Logotipo-01.png" alt="SUBAXA Logo" class="h-10 w-10 object-contain">
+            <img src={Logotipo01.src} alt="SUBAXA Logo" class="h-10 w-10 object-contain">
           </div>
           <span class="font-semibold">SUBAXA</span>
         </a>

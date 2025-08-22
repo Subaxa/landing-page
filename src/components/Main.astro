@@ -2,6 +2,7 @@
 import TopBanner from './TopBanner.astro';
 import Services from './services.astro';
 import Feature from './Feature.astro';
+import MobileApp from '../../public/MobileApp.png'
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 gradient-hero">
@@ -28,7 +29,7 @@ import Feature from './Feature.astro';
 
       <!-- Right: App image -->
       <div class="flex justify-center lg:justify-end">
-        <img src="/app.png" alt="App preview" class="w-[90%] max-w-md lg:max-w-lg drop-shadow-2xl" loading="lazy" decoding="async" />
+        <img src={MobileApp.src} alt="App preview" class="w-[90%] max-w-md lg:max-w-lg drop-shadow-2xl" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>

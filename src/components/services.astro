@@ -1,22 +1,27 @@
 ---
 import Contactbox from "./ContactBox.astro";
 import TechSection from "./TechSection.astro";
-
+import Logotipo7 from "../../public/Logotipo-02.png"
 // No props needed for this component
 ---
 <section class="relative  overflow-hidden gradient-hero">
   <div class="absolute inset-0 backdrop-blur-[220px]"></div>
 	<section id="benefits" class="relative h-screen flex items-center justify-center overflow-hidden px-4 md:px-8">
-        <div class="w-full max-w-7xl mx-auto">
-			<h2 class="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+		
+		<div class="w-full max-w-7xl mx-auto">
+			<div class="flex items-center justify-center mb-8">
+				<img src={Logotipo7.src} alt="SUBAXA Logo" class="h-16 sm:h-20 md:h-24 lg:h-28 object-contain">
+			  </div>
+			<h2 class="text-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
 				Hagamos realidad tu sueño
 			</h2>
 					
-			<p class="text-white/90 text-xl sm:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed">
-				SUBAXA pone a tu disposición los mejores servicios para que puedas invertir en bienes raíces con confianza.
+			<p class="text-center text-white/90 text-xl sm:text-2xl lg:text-2xl">
+				Ponemos a tu disposición los mejores servicios para que puedas invertir en bienes raíces con confianza.
 			</p>
+
             
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+			<div class="grid grid-cols-1 py-5 lg:grid-cols-2 gap-12 items-center">
                 <!-- Left: Services Grid -->
                 
                 </div>
