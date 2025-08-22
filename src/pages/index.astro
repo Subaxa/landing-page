@@ -21,11 +21,11 @@ import ServiceCards from '../components/ServiceCards.astro';
 	<Main />
 	<ServiceCards />
 	<OurProjects />
-	<Banner title="Nuevas Propiedades Sincronizados HOY — " description="18 de agosto de 2025" actionButton={false} />
+	<Banner title="Nuevas Propiedades Sincronizados HOY — " description={new Date().toLocaleDateString('es-ES', {day: 'numeric', month: 'long', year: 'numeric'})} actionButton={false} />
 	<AnimatedBanner direction="right" />
 	<AnimatedBanner direction="left" />
-	<TechSection /> 
-	
+	<TechSection />
+
 	<AboutUs />
 	<Services />
 	<LetsTalk />
