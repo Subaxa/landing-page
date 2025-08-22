@@ -1,0 +1,136 @@
+---
+// About Us component with black background and Tailwind structure
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "Conoce a Nuestro Equipo", 
+  subtitle = "En SUBAXA, somos un grupo dinámico de individuos apasionados por lo que hacemos. Nuestra misión es entregar los mejores resultados para nuestros clientes, superando siempre sus expectativas. Nos enorgullece ser un equipo comprometido, lleno de ideas innovadoras y soluciones creativas, siempre listos para enfrentar nuevos retos y generar un impacto positivo. Ubicados en el corazón de San Carlos, Alajuela, en la hermosa Costa Rica, trabajamos con una visión global pero con un enfoque cercano y personalizado. En nuestra sede, en Ciudad Quesada, fomentamos una cultura de trabajo colaborativa y profesional, donde cada miembro del equipo aporta su talento único para asegurar el éxito de cada proyecto. Nos apasiona lo que hacemos, y nuestro compromiso con la calidad y la excelencia nos ha permitido construir relaciones duraderas con nuestros clientes. Si buscas un equipo que se involucre de manera auténtica en cada detalle, estamos listos para acompañarte en cada paso del camino.."
+} = Astro.props;
+---
+
+<section class="bg-white py-24 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+        {title}
+      </h1>
+      <p class="mt-6 text-md leading-8 text-gray-600 ">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5 xl:gap-16">
+      
+      <!-- Founder 1 -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Carlos Rojas</h3>
+          <p class="text-sm text-gray-600">Co-Fundador</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Co-fundador de Golabs, con mas diez años de experiencia en desarrollo de software</p>
+          <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+            Ha ayudado a empresas innovadoras a externalizar exitosamente sus necesidades técnicas a ubicaciones nearshore en países LATAM, proporcionando acceso a ingenieros altamente calificados
+          </p>
+        </div>
+      </div>
+
+      <!-- Founder 2 -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-green-600/20 to-blue-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Dennis Valverde</h3>
+          <p class="text-sm text-gray-600">Co-Fundador</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Dennis, cofundador de Golabs, ha ayudado a empresas innovadoras a optimizar procesos mediante la externalización de sus necesidades técnicas a LATAM. Con más de 10 años de experiencia, 300+ proyectos y 60+ clientes satisfechos, Golabs ofrece soluciones personalizadas en IA, Ciencia de Datos, Desarrollo de Software, Nube y UX/UI, garantizando resultados de alta calidad.
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Christopher Aguilar</h3>
+          <p class="text-sm text-gray-600">Co-Fundador</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Con más de 10 años en desarrollo de software, se especializa en IA, Ciencia de Datos y arquitectura en la nube. Ha liderado proyectos en diversas industrias, combinando tecnología avanzada con diseño UX/UI. Siempre actualizado con metodologías ágiles, ofrece soluciones personalizadas que maximizan eficiencia y garantizan resultados exitosos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Cindy Herrara</h3>
+          <p class="text-sm text-gray-600">Co-Fundadora</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Estratega digital con amplia experiencia en marketing digital y crecimiento de empresas. 
+            Desarrolla estrategias integrales que impulsan el éxito de nuestros clientes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Member 5 -->
+      <div class="group relative">
+        <div class="aspect-[3/2] w-full overflow-hidden rounded-2xl bg-gray-100">
+          <div class="h-full w-full bg-gradient-to-br from-teal-600/20 to-indigo-600/20 flex items-center justify-center">
+            <svg class="h-24 w-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">Nelson Ugalde</h3>
+          <p class="text-sm text-gray-600">Co-Fundador</p>
+          <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+            Responsable de optimizar procesos, operaciones y calidad de servicio para asegurar una ejecución impecable en cada proyecto.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-24 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+                ¿Listo para Trabajar Juntos?
+            </h2>
+            <p class="mt-6 text-lg text-gray-600">
+                Únase a nuestra familia de clientes satisfechos y descubra cómo podemos 
+                transformar su visión en una realidad digital excepcional.
+            </p>
+        </div>
+    </div>
+  </div>
+</section>

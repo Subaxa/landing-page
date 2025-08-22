@@ -1,10 +1,11 @@
 ---
 import Contactbox from "./ContactBox.astro";
+import TechSection from "./TechSection.astro";
 
 // No props needed for this component
 ---
 <section class="relative  overflow-hidden gradient-hero">
-  <div class="absolute inset-0 backdrop-blur-[120px]"></div>
+  <div class="absolute inset-0 backdrop-blur-[220px]"></div>
 	<section id="benefits" class="relative h-screen flex items-center justify-center overflow-hidden px-4 md:px-8">
         <div class="w-full max-w-7xl mx-auto">
 			<h2 class="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
@@ -17,37 +18,7 @@ import Contactbox from "./ContactBox.astro";
             
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <!-- Left: Services Grid -->
-                <div class="flex flex-col items-center">
-                   
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
-                        <div class="animated-text backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6 opacity-0 transition-opacity duration-800" data-index="0">
-                            <h3 class="text-white text-xl font-bold mb-3">Catálogo Amplio</h3>
-                            <p class="text-white/80 text-sm">
-                                Amplio catálogo de propiedades
-                            </p>
-                        </div>
-                        
-                        <div class="animated-text backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6 opacity-0 transition-opacity duration-800" data-index="1">
-                            <h3 class="text-white text-xl font-bold mb-3">Estudios Registrales</h3>
-                            <p class="text-white/80 text-sm">
-                                Respaldo de expertos
-                            </p>
-                        </div>
-                        
-                        <div class="animated-text backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6 opacity-0 transition-opacity duration-800" data-index="2">
-                            <h3 class="text-white text-xl font-bold mb-3">Asesoría</h3>
-                            <p class="text-white/80 text-sm">
-                                Seguimiento seguro y protegido
-                            </p>
-                        </div>
-                        
-                        <div class="animated-text backdrop-blur-sm bg-white/10 border border-white/20 rounded-2xl p-6 opacity-0 transition-opacity duration-800" data-index="3">
-                            <h3 class="text-white text-xl font-bold mb-3">Accesibilidad</h3>
-                            <p class="text-white/80 text-sm">
-                                Informacion veridica y actualizada
-                            </p>
-                        </div>
-                    </div>
+                
                 </div>
       
                 <!-- Right: Final content -->
@@ -60,7 +31,11 @@ import Contactbox from "./ContactBox.astro";
                 </div>
             </div>
         </div>
+		
       </section>
+	  <section class="relative flex items-center justify-center overflow-hidden">
+		<hr class="w-full border-white/20">
+	  </section>
 
 </section>
 

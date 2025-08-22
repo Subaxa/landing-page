@@ -12,18 +12,22 @@ import TopBanner from '../components/TopBanner.astro';
 import OurProjects from '../components/OurProjects.astro';
 import AnimatedBanner from '../components/AnimatedBanner.astro';
 import Banner from '../components/Banner.astro';
+import AboutUs from '../components/AboutUs.astro';
+import ServiceCards from '../components/ServiceCards.astro';
 ---
 
 <Layout>
 	<Header />
 	<Main />
-	<TopBanner title="SUBAXA" description="— Subastas Judiciales, Invertir, comprar casa o terreno fácil y seguro a un click" />
-	<Services />
+	<ServiceCards />
 	<OurProjects />
 	<Banner title="Nuevas Propiedades Sincronizados HOY — " description="18 de agosto de 2025" actionButton={false} />
 	<AnimatedBanner direction="right" />
 	<AnimatedBanner direction="left" />
-	<TechSection />
+	<TechSection /> 
+	
+	<AboutUs />
+	<Services />
 	<LetsTalk />
 	<Footer />
 </Layout>
