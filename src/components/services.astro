@@ -1,131 +1,38 @@
 ---
 import Contactbox from "./ContactBox.astro";
 import TechSection from "./TechSection.astro";
-import Logotipo7 from "../../public/Logotipo-02.png"
+import Logotipo7 from "../../public/Logotipo-01.png"
 // No props needed for this component
 ---
-<section class="relative  overflow-hidden gradient-hero">
-  <div class="absolute inset-0 backdrop-blur-[220px]"></div>
-	<section id="benefits" class="relative h-screen flex items-center justify-center overflow-hidden px-4 md:px-8">
-		
-		<div class="w-full max-w-7xl mx-auto">
-			<div class="flex items-center justify-center mb-8">
-				<img src={Logotipo7.src} alt="SUBAXA Logo" class="h-16 sm:h-20 md:h-24 lg:h-28 object-contain">
-			  </div>
-			<h2 class="text-center text-white text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
-				Hagamos realidad tu sueño
-			</h2>
-					
-			<p class="text-center text-white/90 text-xl sm:text-2xl lg:text-2xl">
-				Ponemos a tu disposición los mejores servicios para que puedas invertir en bienes raíces con confianza.
-			</p>
+<section id="contact" class="relative overflow-hidden bg-gray-50 py-24">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <div class="flex items-center justify-center mb-8">
+        <img src={Logotipo7.src} alt="SUBAXA Logo" class="h-16 sm:h-20 md:h-24 lg:h-28 object-contain">
+      </div>
+    </div>
 
-            
-			<div class="grid grid-cols-1 py-5 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left: Services Grid -->
-                
-                </div>
-      
-                <!-- Right: Final content -->
-                <div class="flex flex-col items-center text-center">
-                
-					<div class="flex flex-col items-center" id="final-content">
-<Contactbox title="Hablemos" description="estamos aquí para ofrecerte la mejor experiencia en bienes raíces" />
-					</div>
-                   
-                </div>
-            </div>
-        </div>
-		
-      </section>
-	  <section class="relative flex items-center justify-center overflow-hidden">
-		<hr class="w-full border-white/20">
-	  </section>
-
+    <!-- Contact Section -->
+    <div class="bg-white rounded-3xl shadow-lg p-8 lg:p-12">
+      <Contactbox 
+        title="Hagamos realidad tu sueño" 
+        description="Ponemos a tu disposición los mejores servicios para que puedas invertir en bienes raíces con confianza." 
+      />
+    </div>
+    
+  </div>
 </section>
 
-
 <style>
-	.animated-text {
-		transition: opacity 0.8s ease-in-out;
-	}
-</style>
-
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const boxes = document.querySelectorAll('.animated-text') as NodeListOf<HTMLElement>;
-		const finalContent = document.getElementById('final-content') as HTMLElement;
-		const finalButtons = document.getElementById('final-buttons') as HTMLElement;
-		const finalTitle = document.getElementById('final-title') as HTMLElement;
-		const section = document.querySelector('#benefits') as HTMLElement;
-		let currentIndex = -1;
-		let animationStarted = false;
-		
-		function showNextBox() {
-			currentIndex++;
-			
-			if (currentIndex < boxes.length) {
-				// Show current box
-				if (boxes[currentIndex]) {
-					boxes[currentIndex].style.opacity = '1';
-				}
-				
-				// Schedule next box or final content
-				setTimeout(() => {
-					if (currentIndex < boxes.length - 1) {
-						showNextBox();
-					} else {
-						// Show final content after last box
-						setTimeout(() => {
-							if (finalTitle) finalTitle.style.opacity = '1';
-							setTimeout(() => {
-								if (finalContent) finalContent.style.opacity = '1';
-								if (finalButtons) finalButtons.style.opacity = '1';
-							}, 500);
-						}, 800);
-					}
-				}, 800);
-			}
-		}
-		
-		function startAnimation() {
-			if (animationStarted) return;
-			animationStarted = true;
-			console.log('Animation started!'); // Debug
-			showNextBox();
-		}
-		
-		function checkVisibility() {
-			if (!section || animationStarted) return;
-			
-			const rect = section.getBoundingClientRect();
-			const windowHeight = window.innerHeight;
-			
-			// More strict visibility check - section needs to be properly in view
-			// Top of section should be above 70% of viewport height
-			// And section should not be completely above viewport
-			if (rect.top < windowHeight * 0.7 && rect.top > -100) {
-				console.log('Section is visible, starting animation'); // Debug
-				startAnimation();
-				window.removeEventListener('scroll', checkVisibility);
-			}
-		}
-		
-		// Use scroll event
-		window.addEventListener('scroll', checkVisibility, { passive: true });
-		
-		// Check on load but with delay and stricter conditions
-		setTimeout(() => {
-			if (!section) return;
-			
-			const rect = section.getBoundingClientRect();
-			const windowHeight = window.innerHeight;
-			
-			// Only start if section is clearly visible (not just at the very bottom)
-			if (rect.top < windowHeight * 0.5 && rect.top > 0) {
-				console.log('Section visible on load'); // Debug
-				startAnimation();
-			}
-		}, 500);
-	});
-</script> 
+  /* Smooth transitions for interactive elements */
+  .bg-white {
+    transition: all 0.3s ease;
+  }
+  
+  .bg-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+</style> 
