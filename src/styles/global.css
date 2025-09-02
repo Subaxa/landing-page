@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/*  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');*/
 
 /* Custom Color Palette */
 :root {
@@ -200,7 +202,7 @@ background-attachment: fixed;
 .btn-primary:hover { background: rgba(var(--rgb-azul-electrico), 0.95); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(var(--rgb-azul-electrico), 0.35); }
 
 html { scroll-behavior: smooth; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: var(--color-gris-oscuro); }
+body { font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: var(--color-gris-oscuro); }
 
 /* Helpers */
 .text-azul-electrico { color: var(--color-azul-electrico) !important; }
