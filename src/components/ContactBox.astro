@@ -90,7 +90,7 @@ const {
 
     <!-- Right Column: Contact Form -->
     <div class="bg-gray-50 rounded-xl p-6 lg:p-8">
-      <form class="space-y-6">
+      <form id="contactForm" class="space-y-6">
         <!-- Name Fields -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -164,10 +164,28 @@ const {
         <div class="flex justify-end">
           <button
             type="submit"
-            class="bg-[var(--color-azul-electrico)] hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
+            id="submitBtn"
+            class="bg-[var(--color-azul-electrico)] hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Enviar
+            <span id="submitText">Enviar</span>
+            <span id="loadingSpinner" class="hidden">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Enviando...
+            </span>
           </button>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div id="messageContainer" class="hidden mt-4 p-4 rounded-lg">
+          <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+            <strong>¡Éxito!</strong> Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.
+          </div>
+          <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            <strong>Error:</strong> <span id="errorText"></span>
+          </div>
         </div>
       </form>
     </div>
@@ -188,4 +206,159 @@ const {
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(41, 121, 255, 0.3);
   }
+
+  /* Loading spinner animation */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+    const submitText = document.getElementById('submitText') as HTMLSpanElement;
+    const loadingSpinner = document.getElementById('loadingSpinner') as HTMLSpanElement;
+    const messageContainer = document.getElementById('messageContainer') as HTMLDivElement;
+    const successMessage = document.getElementById('successMessage') as HTMLDivElement;
+    const errorMessage = document.getElementById('errorMessage') as HTMLDivElement;
+    const errorText = document.getElementById('errorText') as HTMLSpanElement;
+
+    const API_ENDPOINT = 'https://43cj1v5j09.execute-api.us-east-1.amazonaws.com/contact';
+
+    // Check if all required elements exist
+    if (!form || !submitBtn || !submitText || !loadingSpinner || !messageContainer || !successMessage || !errorMessage || !errorText) {
+      console.error('Required form elements not found');
+      return;
+    }
+
+    interface FormData {
+      nombre: string;
+      apellido: string;
+      email: string;
+      telefono: string;
+      mensaje: string;
+    }
+
+    // Form validation
+    function validateForm(formData: FormData): string[] {
+      const errors: string[] = [];
+
+      if (!formData.nombre.trim()) {
+        errors.push('El nombre es requerido');
+      }
+
+      if (!formData.apellido.trim()) {
+        errors.push('El apellido es requerido');
+      }
+
+      if (!formData.email.trim()) {
+        errors.push('El correo electrónico es requerido');
+      } else if (!isValidEmail(formData.email)) {
+        errors.push('El correo electrónico no es válido');
+      }
+
+      if (!formData.telefono.trim()) {
+        errors.push('El número de teléfono es requerido');
+      }
+
+      if (!formData.mensaje.trim()) {
+        errors.push('El mensaje es requerido');
+      }
+
+      return errors;
+    }
+
+    function isValidEmail(email: string): boolean {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function showMessage(isSuccess: boolean, message: string = ''): void {
+      messageContainer.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+
+      if (isSuccess) {
+        successMessage.classList.remove('hidden');
+      } else {
+        errorMessage.classList.remove('hidden');
+        errorText.textContent = message;
+      }
+
+      // Scroll to message
+      messageContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function setLoadingState(isLoading: boolean): void {
+      submitBtn.disabled = isLoading;
+      if (isLoading) {
+        submitText.classList.add('hidden');
+        loadingSpinner.classList.remove('hidden');
+      } else {
+        submitText.classList.remove('hidden');
+        loadingSpinner.classList.add('hidden');
+      }
+    }
+
+    function resetForm(): void {
+      form.reset();
+      messageContainer.classList.add('hidden');
+    }
+
+    form.addEventListener('submit', async function(e: Event) {
+      e.preventDefault();
+
+      // Hide any previous messages
+      messageContainer.classList.add('hidden');
+
+      // Get form data
+      const formData: FormData = {
+        nombre: (form.elements.namedItem('firstName') as HTMLInputElement)?.value || '',
+        apellido: (form.elements.namedItem('lastName') as HTMLInputElement)?.value || '',
+        email: (form.elements.namedItem('email') as HTMLInputElement)?.value || '',
+        telefono: (form.elements.namedItem('phone') as HTMLInputElement)?.value || '',
+        mensaje: (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || ''
+      };
+
+      // Validate form
+      const validationErrors = validateForm(formData);
+      if (validationErrors.length > 0) {
+        showMessage(false, validationErrors.join(', '));
+        return;
+      }
+
+      // Set loading state
+      setLoadingState(true);
+
+      try {
+        const response = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          showMessage(true);
+          resetForm();
+        } else {
+          const errorData = await response.json().catch(() => ({}));
+          const errorMsg = errorData.message || `Error del servidor: ${response.status}`;
+          showMessage(false, errorMsg);
+        }
+      } catch (error) {
+        console.error('Error sending form:', error);
+        showMessage(false, 'Error de conexión. Por favor, intenta de nuevo.');
+      } finally {
+        setLoadingState(false);
+      }
+    });
+  });
+</script>
