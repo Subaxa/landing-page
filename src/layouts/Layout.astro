@@ -27,7 +27,7 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
+
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		<meta name="title" content={title} />
@@ -37,17 +37,17 @@ const {
 		<meta name="robots" content="index, follow" />
 		<meta name="language" content="Spanish" />
 		<meta name="revisit-after" content="7 days" />
-		
+
 		<!-- Canonical URL -->
 		<link rel="canonical" href={url} />
-		
+
 		<!-- Favicon and Icons -->
 		<link rel="icon" type="image/ico" href="/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
 		<link rel="manifest" href="/manifest.json" />
-		
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content={type} />
 		<meta property="og:url" content={url} />
@@ -58,7 +58,7 @@ const {
 		<meta property="og:image:height" content="630" />
 		<meta property="og:site_name" content="SUBAXA" />
 		<meta property="og:locale" content="es_CR" />
-		
+
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={url} />
@@ -67,14 +67,14 @@ const {
 		<meta property="twitter:image" content={new URL(image, Astro.url)} />
 		<meta property="twitter:creator" content="@subaxa" />
 		<meta property="twitter:site" content="@subaxa" />
-		
+
 		<!-- Additional SEO Meta Tags -->
 		<meta name="theme-color" content="#2979FF" />
 		<meta name="msapplication-TileColor" content="#2979FF" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<meta name="apple-mobile-web-app-title" content="SUBAXA" />
-		
+
 		<!-- Structured Data / JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -92,13 +92,13 @@ const {
 			},
 			"contactPoint": {
 				"@type": "ContactPoint",
-				"telephone": "+506 8888-8888",
+				"telephone": "+506 8821-1348",
 				"contactType": "customer service",
 				"email": "info@subaxa.com"
 			},
 			"sameAs": [
 				"https://www.linkedin.com/company/subaxa",
-				"https://www.facebook.com/subaxa"
+				"https://www.facebook.com/subaxaai"
 			],
 			"areaServed": {
 				"@type": "Country",
@@ -107,14 +107,12 @@ const {
 			"serviceType": "Real Estate Investment Platform",
 			"priceRange": "$$"
 		})} />
-		
+
 		<!-- Preconnect to external domains for performance -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		
 		<!-- Generator -->
 		<meta name="generator" content={Astro.generator} />
-		
 		<!-- Security Headers -->
 		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
 		<meta http-equiv="X-Frame-Options" content="DENY" />
