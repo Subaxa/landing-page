@@ -1,41 +1,62 @@
 ---
-import TopBanner from './TopBanner.astro';
-import Services from './services.astro';
-import Feature from './Feature.astro';
-import MobileApp from '../../public/MobileApp.png'
+import TopBanner from "./TopBanner.astro";
+import Services from "./services.astro";
+import Feature from "./Feature.astro";
+import MobileApp from "../../public/MobileApp.png";
 ---
 
-<section id="main" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 gradient-hero">
-<section class="absolute inset-0 gradient-color opacity-90"></section>
+<section
+  id="main"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 gradient-hero"
+>
+  <section class="absolute inset-0 gradient-color opacity-90"></section>
 
-
-  <div class="relative z-10 w-full h-full  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-t-[100px] p-10">
+  <div
+    class="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-t-[100px] p-10"
+  >
     <div class="grid grid-cols-1 h-full lg:grid-cols-2 items-center gap-12">
       <!-- Left: Copy -->
       <div class="text-center lg:text-left">
-
-        <h3 class="hero-heading text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
-          Oportunidades únicas. Retornos reales.
-          <br>
-          
+        <h3
+          class="hero-heading text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-bold text-white mb-8 leading-tight tracking-tight"
+        >
+          La primera plataforma de remates inmobiliarios con IA en Costa Rica
         </h3>
-        <h4 class="text-3xl font-bold text-white mb-8 leading-tight tracking-tight">
-          <span class="italic font-light opacity-95 text-white/90">Propiedades en riesgo convertidas en inversiones rentables y justas.</span></h4>        
+        <h4
+          class="text-3xl font-bold text-white mb-8 leading-tight tracking-tight"
+        >
+          <span class="italic font-light opacity-95 text-white/90"
+            >Visualizá todos los remates en un solo mapa, validá riesgos legales
+            y recibí acompañamiento experto hasta ganar el remate.</span
+          >
+        </h4>
         <div class="mt-10 flex gap-4">
-
-										<a href="#contact"  class="border-1 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200">
-						Empezar a invertir
-					</a>
-          <a href="https://meetings.hubspot.com/dennis352" target="_blank" class="bg-[var(--color-naranja-accion)] hover:opacity-90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 shadow-lg">
-						Agendar Demo
-					</a>
-               
+          <a
+            href="https://app.subaxa.com/signup/"
+            target="_blank"
+            class="border-1 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200"
+          >
+            Empezar a invertir
+          </a>
+          <a
+            href="https://meetings.hubspot.com/dennis352"
+            target="_blank"
+            class="bg-[var(--color-naranja-accion)] hover:opacity-90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 shadow-lg"
+          >
+            Agendar Demo
+          </a>
         </div>
       </div>
 
       <!-- Right: App image -->
       <div class="flex justify-center lg:justify-end">
-        <img src={MobileApp.src} alt="App preview" class="w-[90%] max-w-md lg:max-w-lg drop-shadow-2xl" loading="lazy" decoding="async" />
+        <img
+          src={MobileApp.src}
+          alt="App preview"
+          class="w-[90%] max-w-md lg:max-w-lg drop-shadow-2xl"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </div>
