@@ -9,25 +9,19 @@ import TechSection from '../components/TechSection.astro';
 import LetsTalk from '../components/letsTalk.astro';
 import WhatIs from '../components/whatIs.astro';
 import TopBanner from '../components/TopBanner.astro';
-import OurProjects from '../components/OurProjects.astro';
 import AnimatedBanner from '../components/AnimatedBanner.astro';
 import Banner from '../components/Banner.astro';
 import AboutUs from '../components/AboutUs.astro';
-import ServiceCards from '../components/ServiceCards.astro';
+import InvestmentProcess from '../components/InvestmentProcess.astro';
 ---
 
 <Layout>
 	<Header />
 	<Main />
-	<ServiceCards />
-	<OurProjects />
-	<!-- <Banner title="Nuevas Propiedades Sincronizados HOY — " description={new Date().toLocaleDateString('es-ES', {day: 'numeric', month: 'long', year: 'numeric'})} actionButton={false} /> -->	
-	<!-- <AnimatedBanner direction="right" /> -->
-	<!-- <AnimatedBanner direction="left" /> -->
+	<InvestmentProcess />
+	<LetsTalk />
 	<TechSection />
-
 	<AboutUs />
 	<Services />
-	<LetsTalk />
 	<Footer />
 </Layout>

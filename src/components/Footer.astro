@@ -5,7 +5,7 @@ import Logotipo7 from '../../public/Logotipo-07.png'
 import ContactBoxFooter from './ContactBoxFooter.astro';
 ---
 
-<footer class="relative overflow-hidden  pt-20 pb-8 bg-gray-50">
+<footer class="relative overflow-hidden pt-20 pb-12 bg-gray-100">
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
     <div class="flex items-center justify-center mb-8">
       <img src={Logotipo7.src} alt="SUBAXA Logo" class="h-16 sm:h-20 md:h-24 lg:h-28 object-contain">
@@ -17,6 +17,6 @@ import ContactBoxFooter from './ContactBoxFooter.astro';
     <hr class="my-8 border-gray-400">
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center text-gray-600 text-sm">
-    © 2025 SUBAXA. Todos los derechos reservados.
+    © {new Date().getFullYear()} SUBAXA. Todos los derechos reservados.
   </div>
 </footer>
