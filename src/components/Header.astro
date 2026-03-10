@@ -90,6 +90,7 @@ import Logotipo01 from '../../public/Logotipo-01.png'
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
+        if (targetId === null) return;
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {

@@ -5,7 +5,7 @@ export interface Props {
   direction?: 'left' | 'right';
 }
 
-const { title: initialTitle, description: initialDescription, direction = 'left' } = Astro.props;
+const { direction = 'left' } = Astro.props;
 
 const values = [
   {
@@ -51,7 +51,7 @@ const values = [
     
     <div class="ticker-wrapper">
       <div class={`ticker-content ${direction === 'left' ? 'move-left' : 'move-right'}`}>
-        {values.map((item, index) => (
+        {values.map((item) => (
           <div class="ticker-item">
             <strong class="font-semibold text-white">{item.title}</strong>
             <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current text-white">
@@ -62,7 +62,7 @@ const values = [
         ))}
         
         <!-- Duplicamos para efecto continuo -->
-        {values.map((item, index) => (
+        {values.map((item) => (
           <div class="ticker-item">
             <strong class="font-semibold text-white">{item.title}</strong>
             <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current text-white">
