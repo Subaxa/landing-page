@@ -8,15 +8,18 @@ import TechSection from '../components/TechSection.astro';
 import LetsTalk from '../components/letsTalk.astro';
 import AboutUs from '../components/AboutUs.astro';
 import InvestmentProcess from '../components/InvestmentProcess.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { siteFaq } from '../data/faq';
 ---
 
-<Layout>
+<Layout faqItems={[...siteFaq]}>
 	<Header />
 	<Main />
 	<InvestmentProcess />
 	<LetsTalk />
 	<TechSection />
 	<AboutUs />
+	<FaqSection items={siteFaq} />
 	<Services />
 	<Footer />
 </Layout>

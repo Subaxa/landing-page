@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://subaxa.com/sitemap.xml
+Sitemap: https://subaxa.com/sitemap-index.xml
 
 # Block common directories that might be added later
 Disallow: /node_modules/
