@@ -1,0 +1,127 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Nuestros servicios — SUBAXA';
+const description =
+  'Servicios profesionales para inversión en remates inmobiliarios en Costa Rica: acompañamiento legal, informes, investigación y más.';
+const url = 'https://subaxa.com/servicios';
+
+/** Datos de la hoja publicada (SERVICIOS PROFESIONALES). */
+type ServicioProfesional = {
+  titulo: string;
+  detalle: string;
+};
+
+const serviciosIncluidos: ServicioProfesional[] = [
+  {
+    titulo: 'Acompañamiento previo al remate',
+    detalle: 'Orientación y seguimiento antes del día del remate.',
+  },
+  {
+    titulo: 'Acompañamiento posterior al remate',
+    detalle: 'Apoyo después de adjudicación para cerrar el proceso con claridad.',
+  },
+  {
+    titulo: 'Reunión virtual con nuestro equipo profesional',
+    detalle: 'Sesión en línea con especialistas de SUBAXA.',
+  },
+  {
+    titulo: 'Abogado disponible para procesos legales posteriores al remate',
+    detalle: 'Asesoría legal para trámites que sigan al remate.',
+  },
+  {
+    titulo: 'Informe de la propiedad (plano, registro, mapa)',
+    detalle: 'Documentación clave de la propiedad.',
+  },
+  {
+    titulo:
+      'Recomendaciones profesionales: legal, topográfica, contable y del remate',
+    detalle: 'Lineamientos en las áreas indicadas para tu decisión.',
+  },
+  {
+    titulo: 'Investigación si el remate está en pie, con notificaciones',
+    detalle: 'Verificación del estado del remate y avisos.',
+  },
+  {
+    titulo: 'Estudio de personas o sociedades',
+    detalle: 'Consulta de antecedentes según disponibilidad del proveedor.',
+  },
+];
+---
+
+<Layout title={title} description={description} url={url}>
+  <Header />
+  <main>
+    <section
+      class="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 gradient-hero"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black"
+        aria-hidden="true"
+      />
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p
+          class="text-sm font-semibold uppercase tracking-wider text-white/80 mb-4"
+        >
+          SUBAXA
+        </p>
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+        >
+          Nuestros servicios
+        </h1>
+        <p
+          class="text-lg sm:text-xl text-white/90 max-w-2xl leading-relaxed"
+        >
+          Servicios profesionales pensados para quienes invierten en remates con
+          respaldo de equipo legal y analítico, según lo definido en nuestros
+          planes.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href="/#planes"
+            class="inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200"
+          >
+            Ver planes
+          </a>
+          <a
+            href="/#contact"
+            class="inline-flex items-center justify-center bg-[var(--color-naranja-accion)] hover:opacity-90 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 shadow-lg"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 text-gray-900 py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          Servicios profesionales
+        </h2>
+
+        <ul class="grid gap-6 sm:grid-cols-2">
+          {
+            serviciosIncluidos.map((item) => (
+              <li
+                class="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 md:p-8 flex flex-col gap-3 transition-shadow hover:shadow-md"
+              >
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <h3 class="text-lg font-semibold text-gray-900 leading-snug pr-2">
+                    {item.titulo}
+                  </h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {item.detalle}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

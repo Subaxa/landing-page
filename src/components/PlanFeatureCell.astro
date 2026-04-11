@@ -1,0 +1,54 @@
+---
+interface Props {
+	cell: string;
+	wrapForTable?: boolean;
+}
+
+const { cell, wrapForTable = false } = Astro.props;
+
+function cellKind(val: string): 'check' | 'dash' | 'text' {
+	const v = val.trim();
+	if (!v) return 'dash';
+	if (v === '\u2713' || v === '\u2714') return 'check';
+	return 'text';
+}
+
+const ck = cellKind(cell);
+---
+
+{
+	ck === 'check' ? (
+		<span
+			class:list={[
+				'inline-flex text-[var(--color-verde-exito)]',
+				wrapForTable && 'justify-center',
+			]}
+			aria-label="Incluido"
+		>
+			<svg
+				class="w-5 h-5"
+				fill="currentColor"
+				viewBox="0 0 20 20"
+				aria-hidden="true"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</span>
+	) : ck === 'dash' ? (
+		<span class="text-gray-300 tabular-nums">—</span>
+	) : (
+		<span
+			class:list={[
+				'whitespace-pre-line font-medium text-gray-800 tabular-nums',
+				!wrapForTable && 'text-right text-sm font-semibold text-gray-900',
+				wrapForTable && 'text-gray-800',
+			]}
+		>
+			{cell.trim()}
+		</span>
+	)
+}
