@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 const title = 'Nuestros servicios — SUBAXA';
 const description =
   'Servicios profesionales para inversión en remates inmobiliarios en Costa Rica: acompañamiento legal, informes, investigación y más.';
-const url = 'https://subaxa.com/servicios';
+const url = 'https://subaxa.com/servicios/';
 
 /** Datos de la hoja publicada (SERVICIOS PROFESIONALES). */
 type ServicioProfesional = {
@@ -49,9 +49,47 @@ const serviciosIncluidos: ServicioProfesional[] = [
     detalle: 'Consulta de antecedentes según disponibilidad del proveedor.',
   },
 ];
+
+const jsonLdExtra: Record<string, unknown>[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: 'https://subaxa.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Servicios',
+        item: url,
+      },
+    ],
+  },
+  {
+    '@type': 'ItemList',
+    name: 'Servicios profesionales SUBAXA',
+    description,
+    numberOfItems: serviciosIncluidos.length,
+    itemListElement: serviciosIncluidos.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.titulo,
+      description: item.detalle,
+    })),
+  },
+];
 ---
 
-<Layout title={title} description={description} url={url}>
+<Layout
+  title={title}
+  description={description}
+  url={url}
+  imageAlt="SUBAXA — servicios profesionales para inversión en remates en Costa Rica"
+  jsonLdExtra={jsonLdExtra}
+>
   <Header />
   <main>
     <section

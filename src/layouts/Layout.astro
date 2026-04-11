@@ -1,25 +1,120 @@
 ---
 import '../styles/global.css';
 
-// SEO Props interface
-export interface Props {
-  title?: string;
-  description?: string;
-  keywords?: string;
-  image?: string;
-  url?: string;
-  type?: string;
+export interface FaqItem {
+	question: string;
+	answer: string;
 }
 
-// Default SEO values
+// SEO Props interface
+export interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	/** Texto para og:image:alt y contexto de accesibilidad */
+	imageAlt?: string;
+	url?: string;
+	type?: string;
+	/** Nodos extra en @graph (p. ej. BreadcrumbList, ItemList) */
+	jsonLdExtra?: Record<string, unknown>[];
+	faqItems?: FaqItem[];
+}
+
+const site = Astro.site ?? new URL('https://subaxa.com');
+
 const {
-  title = "SUBAXA - Inversión Inteligente en Bienes Raíces en Costa Rica",
-  description = "Plataforma líder para invertir, comprar casa o terreno en Costa Rica. Acceso exclusivo a propiedades en remate con tecnología de IA y asesoría experta. Encuentra oportunidades únicas en bienes raíces.",
-  keywords = "inversión bienes raíces, Costa Rica, propiedades remate, comprar casa, comprar terreno, inversión inmobiliaria, SUBAXA, tecnología IA, asesoría legal",
-  image = "/Logotipo-01.png",
-  url = "https://subaxa.com",
-  type = "website"
+	title = 'SUBAXA - Inversión Inteligente en Bienes Raíces en Costa Rica',
+	description = 'Plataforma líder para invertir, comprar casa o terreno en Costa Rica. Acceso exclusivo a propiedades en remate con tecnología de IA y asesoría experta. Encuentra oportunidades únicas en bienes raíces.',
+	image = '/og-default.png',
+	imageAlt = 'SUBAXA — plataforma de remates inmobiliarios con IA en Costa Rica',
+	url = 'https://subaxa.com',
+	type = 'website',
+	jsonLdExtra = [],
+	faqItems = [],
 } = Astro.props;
+
+const pageUrl = url;
+const siteOrigin = new URL(pageUrl).origin;
+const imageUrl = new URL(image, site).href;
+
+const businessId = `${siteOrigin}/#business`;
+const websiteId = `${siteOrigin}/#website`;
+
+const graph: Record<string, unknown>[] = [
+	{
+		'@type': 'WebSite',
+		'@id': websiteId,
+		url: siteOrigin,
+		name: 'SUBAXA',
+		publisher: { '@id': businessId },
+		inLanguage: 'es-CR',
+	},
+	{
+		'@type': 'RealEstateAgent',
+		'@id': businessId,
+		name: 'SUBAXA',
+		description,
+		url: siteOrigin,
+		logo: imageUrl,
+		image: imageUrl,
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'San Carlos',
+			addressRegion: 'Alajuela',
+			addressCountry: 'CR',
+		},
+		contactPoint: {
+			'@type': 'ContactPoint',
+			telephone: '+506 8821-1348',
+			contactType: 'customer service',
+			email: 'info@subaxa.com',
+		},
+		sameAs: [
+			'https://www.linkedin.com/company/subaxa',
+			'https://www.facebook.com/subaxaai',
+		],
+		areaServed: {
+			'@type': 'Country',
+			name: 'Costa Rica',
+		},
+		serviceType: 'Real Estate Investment Platform',
+		priceRange: '$$',
+	},
+	{
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: title,
+		description,
+		isPartOf: { '@id': websiteId },
+		about: { '@id': businessId },
+		inLanguage: 'es-CR',
+	},
+];
+
+if (faqItems.length > 0) {
+	graph.push({
+		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.question,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: item.answer,
+			},
+		})),
+	});
+}
+
+if (jsonLdExtra.length > 0) {
+	graph.push(...jsonLdExtra);
+}
+
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': graph,
+};
 ---
 
 <!doctype html>
@@ -32,11 +127,9 @@ const {
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content={keywords} />
 		<meta name="author" content="SUBAXA" />
 		<meta name="robots" content="index, follow" />
 		<meta name="language" content="Spanish" />
-		<meta name="revisit-after" content="7 days" />
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href={url} />
@@ -53,20 +146,22 @@ const {
 		<meta property="og:url" content={url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:image" content={imageUrl} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={imageAlt} />
 		<meta property="og:site_name" content="SUBAXA" />
 		<meta property="og:locale" content="es_CR" />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={url} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
-		<meta property="twitter:creator" content="@subaxa" />
-		<meta property="twitter:site" content="@subaxa" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={url} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
+		<meta name="twitter:image:alt" content={imageAlt} />
+		<meta name="twitter:creator" content="@subaxa" />
+		<meta name="twitter:site" content="@subaxa" />
 
 		<!-- Additional SEO Meta Tags -->
 		<meta name="theme-color" content="#2979FF" />
@@ -76,40 +171,10 @@ const {
 		<meta name="apple-mobile-web-app-title" content="SUBAXA" />
 
 		<!-- Structured Data / JSON-LD -->
-		<script type="application/ld+json" is:inline set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "RealEstateAgent",
-			"name": "SUBAXA",
-			"description": description,
-			"url": url,
-			"logo": new URL(image, Astro.url),
-			"image": new URL(image, Astro.url),
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "San Carlos",
-				"addressRegion": "Alajuela",
-				"addressCountry": "CR"
-			},
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"telephone": "+506 8821-1348",
-				"contactType": "customer service",
-				"email": "info@subaxa.com"
-			},
-			"sameAs": [
-				"https://www.linkedin.com/company/subaxa",
-				"https://www.facebook.com/subaxaai"
-			],
-			"areaServed": {
-				"@type": "Country",
-				"name": "Costa Rica"
-			},
-			"serviceType": "Real Estate Investment Platform",
-			"priceRange": "$$"
-		})} />
+		<script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-X8174C8BGW"></script>
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-X8174C8BGW"></script>
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
