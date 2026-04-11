@@ -10,24 +10,25 @@ import Logotipo01 from '../../public/Logotipo-01.png'
     <div id="header-compact" class="flex items-center justify-center">
       <!-- Desktop: All-in-one rounded menu -->
       <div class="hidden md:flex items-center justify-center w-full">
-        <div class="backdrop-blur bg-black/20 border border-white/20 rounded-full px-8 py-3.5 flex items-center justify-between gap-8 w-full max-w-4xl">
+        <div class="backdrop-blur bg-black/20 border border-white/20 rounded-full px-4 lg:px-7 py-3 flex flex-nowrap items-center justify-between gap-3 lg:gap-5 w-full max-w-6xl min-w-0">
           <!-- Left: Brand -->
-          <a href="#" class="flex items-center text-white/90 hover:text-white transition-colors">
+          <a href="/" class="flex shrink-0 items-center text-white/90 hover:text-white transition-colors">
             <div class=" rounded-full p-1 ">
               <img src={Logotipo02.src} alt="SUBAXA Logo" class="h-8 object-contain">
             </div>
           </a>
 
           <!-- Center: Menu Items -->
-          <div class="flex items-center gap-8">
-            <a href="#main" class="text-white hover:text-azul-electrico transition-all duration-300 font-medium text-sm px-3 py-2 rounded-full border-2 border-transparent hover:border-azul-electrico hover:bg-white/5">Inicio</a>
-            <a href="#about-us" class="text-white hover:text-verde-exito transition-all duration-300 font-medium text-sm px-3 py-2 rounded-full border-2 border-transparent hover:border-verde-exito hover:bg-white/5">Nosotros</a>
-            <a href="#planes" class="text-white hover:text-morado-inspiracion transition-all duration-300 font-medium text-sm px-3 py-2 rounded-full border-2 border-transparent hover:border-morado-inspiracion hover:bg-white/5">Planes</a>
-            <a href="#contact" class="text-white hover:text-morado-inspiracion transition-all duration-300 font-medium text-sm px-3 py-2 rounded-full border-2 border-transparent hover:border-morado-inspiracion hover:bg-white/5">Contacto</a>
+          <div class="flex min-w-0 flex-1 items-center justify-center gap-1.5 lg:gap-3">
+            <a href="/#main" class="whitespace-nowrap text-white hover:text-azul-electrico transition-all duration-300 font-medium text-xs lg:text-sm px-2 lg:px-2.5 py-2 rounded-full border-2 border-transparent hover:border-azul-electrico hover:bg-white/5">Inicio</a>
+            <a href="/#about-us" class="whitespace-nowrap text-white hover:text-verde-exito transition-all duration-300 font-medium text-xs lg:text-sm px-2 lg:px-2.5 py-2 rounded-full border-2 border-transparent hover:border-verde-exito hover:bg-white/5">Nosotros</a>
+            <a href="/servicios" class="whitespace-nowrap text-white hover:text-morado-inspiracion transition-all duration-300 font-medium text-xs lg:text-sm px-2 lg:px-2.5 py-2 rounded-full border-2 border-transparent hover:border-morado-inspiracion hover:bg-white/5">Servicios</a>
+            <a href="/#planes" class="whitespace-nowrap text-white hover:text-morado-inspiracion transition-all duration-300 font-medium text-xs lg:text-sm px-2 lg:px-2.5 py-2 rounded-full border-2 border-transparent hover:border-morado-inspiracion hover:bg-white/5">Planes</a>
+            <a href="/#contact" class="whitespace-nowrap text-white hover:text-morado-inspiracion transition-all duration-300 font-medium text-xs lg:text-sm px-2 lg:px-2.5 py-2 rounded-full border-2 border-transparent hover:border-morado-inspiracion hover:bg-white/5">Contacto</a>
           </div>
 
           <!-- Right: Sign In button -->
-          <a href="https://app.subaxa.com" target="_blank" class="bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 shadow-sm text-azul-electrico hover:text-verde-exito">
+          <a href="https://app.subaxa.com" target="_blank" class="shrink-0 whitespace-nowrap bg-white text-gray-900 px-3 lg:px-4 py-2 rounded-full font-medium text-xs lg:text-sm transition-all duration-200 shadow-sm text-azul-electrico hover:text-verde-exito">
             Iniciar Sesión
           </a>
         </div>
@@ -36,7 +37,7 @@ import Logotipo01 from '../../public/Logotipo-01.png'
       <!-- Mobile: Simple layout -->
       <div class="md:hidden flex items-center justify-between w-full">
 
-        <a href="#" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
+        <a href="/" class="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
           <div class="backdrop-blur-sm bg-white/90 border border-white/20 rounded-full p-1">
             <img src={Logotipo01.src} alt="SUBAXA Logo" class="h-10 w-10 object-contain">
           </div>
@@ -59,10 +60,11 @@ import Logotipo01 from '../../public/Logotipo-01.png'
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-4">
       <div class="backdrop-blur-enhanced bg-white/10 rounded-2xl px-4 py-4 space-y-2">
-        <a href="#main" class="block px-4 py-3 text-white hover:text-azul-electrico hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-azul-electrico">Inicio</a>
-        <a href="#about-us" class="block px-4 py-3 text-white hover:text-verde-exito hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-verde-exito">Nosotros</a>
-        <a href="#planes" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-morado-inspiracion">Planes</a>
-        <a href="#contact" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-morado-inspiracion">Contacto</a>
+        <a href="/#main" class="block px-4 py-3 text-white hover:text-azul-electrico hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-azul-electrico">Inicio</a>
+        <a href="/#about-us" class="block px-4 py-3 text-white hover:text-verde-exito hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-verde-exito">Nosotros</a>
+        <a href="/servicios" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-morado-inspiracion">Servicios</a>
+        <a href="/#planes" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-morado-inspiracion">Planes</a>
+        <a href="/#contact" class="block px-4 py-3 text-white hover:text-morado-inspiracion hover:bg-white/10 rounded-xl transition-all duration-300 font-medium text-sm border-2 border-transparent hover:border-morado-inspiracion">Contacto</a>
         <div class="border-t border-white/20 my-2"></div>
         <a href="https://app.subaxa.com" target="_blank" class="block w-full bg-white text-gray-900 px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 shadow-sm text-azul-electrico hover:text-verde-exito text-center">
           Iniciar Sesión
