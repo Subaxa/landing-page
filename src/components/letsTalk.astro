@@ -6,7 +6,7 @@ import PlanFeatureCell from "./PlanFeatureCell.astro";
  * @see https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRAtT81ckUNJpn69QyUmkoL0I24sJynbwTuIYTUa0L9k-Apt1IMyEA9tOnL2x2Kgr0VKNedOivt4BKp/pubhtml?gid=536021436&single=true
  */
 
-const planNames = ["Explorador", "Inversor", "Oportunidad", "Élite"] as const;
+const planNames = ["Explorador", "Oportunidad","Inversionista", "Élite"] as const;
 
 type TableRow =
 	| { kind: "section"; label: string }
@@ -156,11 +156,6 @@ const mobilePlanAccents = [
 				>
 					Elegí cómo querés invertir en remates
 				</h2>
-				<p
-					class="text-gray-600 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
-				>
-					Compará en detalle qué incluye cada plan según la propuesta de SUBAXA.
-				</p>
 			</div>
 
 			<div
@@ -224,6 +219,49 @@ const mobilePlanAccents = [
 				<div class="hidden md:block overflow-x-auto">
 					<table class="w-full min-w-[720px] text-sm border-collapse">
 						<thead>
+							<tr class="border-b border-gray-200 bg-white">
+								<th
+									colspan={5}
+									scope="colgroup"
+									class="px-4 py-6 text-center font-normal"
+								>
+									<div class="mx-auto max-w-xl space-y-1">
+										<h3 class="text-lg font-semibold text-gray-900 sm:text-xl">
+											Únete a Subaxa
+										</h3>
+										<br/>
+										<p id="planes-registro-desc text-lg font-semibold"
+										class="text-sm leading-relaxed text-gray-600 sm:text-[0.9375rem]">La plataforma de remates más <b>completa</b> e <b>inteligente</b> de <b>Costa Rica</b>.</p>
+										<p
+											id="planes-registro-desc"
+											class="text-sm leading-relaxed text-gray-600 sm:text-[0.9375rem]"
+										>
+										Crea tu cuenta, elige el plan y <b>empieza</b>
+											a <b>invertir</b>
+										</p>
+										<div class="pt-2">
+											<a
+												href="https://app.subaxa.com/signup/"
+												target="_blank"
+												rel="noopener noreferrer"
+												class="btn-palpitar inline-flex items-center justify-center bg-[var(--color-naranja-accion)] hover:opacity-90 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-opacity duration-200 shadow-sm"
+												aria-describedby="planes-registro-desc"
+											>
+												Crear cuenta
+											</a>
+										</div>
+									</div>
+								</th>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<div class="mx-auto max-w-xl space-y-1">
+										<h3 class="text-2xl text-center font-semibold mt-2 mb-2 tracking-tight leading-[1.1] bg-gradient-to-r from-[oklch(0.17_0_0)] via-[#409bff] to-[oklch(0.33_0_0)] bg-clip-text text-transparent">
+											Planes
+										</h3>
+									</div>
+								</td>
+							</tr>
 							<tr
 								class="bg-gray-50 border-b border-gray-200 text-gray-900 text-left"
 							>
@@ -325,3 +363,34 @@ const mobilePlanAccents = [
 		</div>
 	</div>
 </section>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		.btn-palpitar {
+			animation: palpitar 3s ease-in-out infinite;
+			will-change: transform, box-shadow;
+		}
+	}
+
+	@keyframes palpitar {
+		0%,
+		100% {
+			transform: scale(1);
+			box-shadow:
+				0 1px 3px rgba(0, 0, 0, 0.12),
+				0 0 0 0 rgba(255, 112, 67, 0.35);
+		}
+		40% {
+			transform: scale(1.06);
+			box-shadow:
+				0 4px 14px rgba(255, 112, 67, 0.45),
+				0 0 0 8px rgba(255, 112, 67, 0);
+		}
+		55% {
+			transform: scale(1.02);
+			box-shadow:
+				0 2px 8px rgba(255, 112, 67, 0.3),
+				0 0 0 3px rgba(255, 112, 67, 0.12);
+		}
+	}
+</style>
